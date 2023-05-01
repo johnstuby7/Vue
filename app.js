@@ -5,7 +5,7 @@ const vm = Vue.createApp({
       middleName: '',
       lastName: 'Doe',
       url: 'https://google.com',
-      raw_url: '<a :href="https://google.com" target="_blank">Google</a>',
+      raw_url: '<a href="https://google.com" target="_blank">Google</a>',
       age: 20
     }
   },
@@ -13,7 +13,7 @@ const vm = Vue.createApp({
     increment() {
       this.age++
     },
-    updateLastName(msg, event) {
+    updateLastName(msg, event) {      
       // console.log(msg)
 
       this.lastName = event.target.value
@@ -26,21 +26,28 @@ const vm = Vue.createApp({
     fullName() {
       console.log('Full name computed property was called!')
 
-      this.age
-       return `${this.firstName} ${this.middleName} ${this.lastName.toUpperCase()}`
+      return `${this.firstName} ${this.middleName} ${this.lastName.toUpperCase()}`
     },
+  },
+  //  allows asynchronous calls
+  watch: {
+    age(newVal, oldVal) {
+      setTimeout(() => {
+        this.age = 20
+      }, 3000)
+    }
   }
 }).mount('#app')
 
 // setTimeout(() => {
-//   vm.firstName = 'Bob';
-// }, 2000);
+//   vm.firstName = 'Bob'
+// }, 2000)
 
 // Vue.createApp({
 //   data() {
 //     return {
-//       firstName: 'Steve',
-//       lastName: 'Rogers'
+//       firstName: 'Jane',
+//       lastName: 'Doe'
 //     }
 //   }
 // }).mount('#app2')
