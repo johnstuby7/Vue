@@ -1,0 +1,4 @@
+
+Good to know:
+Using a cdn, you can just include the following to use vue without installing it: <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
