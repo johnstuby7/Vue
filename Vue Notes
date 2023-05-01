@@ -6,3 +6,5 @@ Good to know:
 - You can use v-cloak to hide the loading of a element, for example when it originally loaded the firstname, you would see {{}} before John Doe, to fix this you can add a    v-cloak to a div and set a custom css for it like so: div v-cloak.  Css: [v-cloak] { display:none} do this in main.css
 
 - v-bind:href is the same as :href, this allows us to bind elements to certain logic/code
+
+- by adding @keyup.enter to a input, you can have vue trigger that field ona specific key interaction(enter, space, etc)
