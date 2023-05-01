@@ -1,4 +1,8 @@
 
 Good to know:
-Using a cdn, you can just include the following to use vue without installing it: <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+- Using a cdn, you can just include the following to use vue without installing it: <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
+- In the network tab, you can use the no throttling dropdown to test out your code with various network throughput.
+- You can use v-cloak to hide the loading of a element, for example when it originally loaded the firstname, you would see {{}} before John Doe, to fix this you can add a    v-cloak to a div and set a custom css for it like so: div v-cloak.  Css: [v-cloak] { display:none} do this in main.css
+
+- 
