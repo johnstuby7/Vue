@@ -16,3 +16,9 @@ Good to know:
 - A computed property is a value that can be derived from other stored value. It calculates or computes from other values resulting in a new property. 
 
 - Watchers:
+
+
+- v-show changes the display css property, if false,t hen display will be set to none, does not work with v-else, does not work with template/template
+
+- v-if will remove or add the element depending on the conditon, works with v-else, works with template, cheap on load, expensive on toggle
+
