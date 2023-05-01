@@ -8,3 +8,5 @@ Good to know:
 - v-bind:href is the same as :href, this allows us to bind elements to certain logic/code
 
 - by adding @keyup.enter to a input, you can have vue trigger that field ona specific key interaction(enter, space, etc)
+
+- trim removes whitespace from input v-model.lazy.trim
