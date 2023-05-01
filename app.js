@@ -7,11 +7,11 @@ Vue.createApp({
   }
 }).mount('#app')
 
-Vue.createApp({
-  data() {
-    return {
-      firstName: 'Steve',
-      lastName: 'Rogers'
-    }
-  }
-}).mount('#app2')
+// Vue.createApp({
+//   data() {
+//     return {
+//       firstName: 'Steve',
+//       lastName: 'Rogers'
+//     }
+//   }
+// }).mount('#app2')
