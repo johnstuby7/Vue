@@ -14,3 +14,5 @@ Good to know:
 - Computed properties: data-bind certain information together by using a computed property, good for reactive data, it helps to simplify logic: https://vuejs.org/guide/essentials/computed.html#basic-example
 
 - A computed property is a value that can be derived from other stored value. It calculates or computes from other values resulting in a new property. 
+
+- Watchers:
