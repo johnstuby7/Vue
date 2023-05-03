@@ -22,3 +22,13 @@ Good to know:
 
 - v-if will remove or add the element depending on the conditon, works with v-else, works with template, cheap on load, expensive on toggle
 
+- compile: to take in something and covert it into something else
+
+- The virtual Dom is a javascript object. it is a lightweight copy of the actual DOM. Its faster to perform comparisons and updates on the Virutal DOM than it
+  it is to perform them on the actual DOM
+
+- open -a 'visual studio code' open index.html (that will open a browser with the file)
+
+- to runa a script, use node scriptName
+
+- 
