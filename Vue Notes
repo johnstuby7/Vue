@@ -31,4 +31,5 @@ Good to know:
 
 - to runa a script, use node scriptName
 
-- 
+- Components: Sections of your application (Header, footer, posts, lists, etc)
+
