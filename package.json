@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/johnstuby7/Vue/issues"
   },
-  "homepage": "https://github.com/johnstuby7/Vue#readme"
+  "homepage": "https://github.com/johnstuby7/Vue#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.14"
+  }
 }
