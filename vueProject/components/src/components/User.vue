@@ -1,10 +1,23 @@
 <template>
-  
+  <button type="button" @click="onClickAge">Update Age</button>
   <p>The user is {{ age }} years old</p>
+  <p>{{ ageDoubled }}</p>
 </template>
 <script>
 export default {
   name: "User",
-  props: ['age']
+  props: ['age'],
+  emits: ['age-change'],
+  computed: {
+    ageDoubled() {
+      return this.age * 2
+    }
+  },
+  methods: {
+    // emits event that passes information back to parent
+    onClickAge() {
+      this.$emit('age-change', 3)
+    }
+  }
 }
 </script>

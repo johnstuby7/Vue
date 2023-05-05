@@ -102,3 +102,58 @@ export default {
   props: ["age"]
 }
 </script>
+
+Props event emit example child to parent
+<template>
+  <button type="button" @click="onClickAge">Update Age</button>
+  <p>The user is {{ age }} years old</p>
+  <p>{{ ageDoubled }}</p>
+</template>
+<script>
+export default {
+  name: "User",
+  props: ['age'],
+  emits: ['age-change'],
+  computed: {
+    ageDoubled() {
+      return this.age * 2
+    }
+  },
+  methods: {
+    // emits event that passes information back to parent
+    onClickAge() {
+      this.$emit('age-change', 3)
+    }
+  }
+}
+</script>
+
+<template>
+  <h3>Hey</h3>
+  <Greeting :age="age" />
+  <User :age="age" @age-change="updateAge" />
+</template>
+
+<script>
+import Greeting from "@/components/Greeting.vue"
+import User from "@/components/User.vue"
+
+export default {
+  name: 'App',
+  components: { 
+    Greeting,
+    User
+  },
+  data() {
+    return {
+      age: 20
+    }
+  },
+  methods: {
+    updateAge(num) {
+      this.age += num
+    }
+  }
+}
+</script>
+
