@@ -58,3 +58,10 @@ export default {
   },
 }
 </script>
+
+
+- npm install sass --save-dev will set the dependency to be a development only dependency
+
+Props:
+- Using props, a parent element is able to share information with its children
+- 
