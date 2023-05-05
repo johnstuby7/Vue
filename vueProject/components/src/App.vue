@@ -1,28 +1,31 @@
 <template>
-  <h3>Hey</h3>
-  <Greeting :age="age" />
-  <User :age="age" @age-change="updateAge" />
+  <p>Hey!</p>
+  <greeting></greeting>
+  <user :age="age" @age-change="updateAge" :ageChangeFn="updateAgeCB"></user>
 </template>
 
 <script>
-import Greeting from "@/components/Greeting.vue"
-import User from "@/components/User.vue"
+import Greeting from "@/components/Greeting.vue";
+import User from "@/components/User.vue";
 
 export default {
-  name: 'App',
-  components: { 
+  name: "App",
+  components: {
     Greeting,
-    User
+    User,
   },
   data() {
     return {
-      age: 20
-    }
+      age: 20,
+    };
   },
   methods: {
     updateAge(num) {
-      this.age += num
-    }
-  }
-}
+      this.age += num;
+    },
+    updateAgeCB(num) {
+      this.age += num;
+    },
+  },
+};
 </script>
