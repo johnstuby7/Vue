@@ -64,4 +64,41 @@ export default {
 
 Props:
 - Using props, a parent element is able to share information with its children
-- 
+-  Basic example of passing a prop from a parent to child:
+
+App.vue:
+<template>
+  <h3>Hey</h3>
+  <!-- this is allowing the age to be passed as a prop to the child elements -->
+  <Greeting :age="age" />
+  <User :age="age" />
+</template>
+
+<script>
+import Greeting from "@/components/Greeting.vue"
+import User from "@/components/User.vue"
+export default {
+  name: 'App',
+  components: { 
+    Greeting,
+    User
+  },
+  data() {
+    return {
+      // Defining the age
+      age: 20
+    }
+  }
+}
+</script>
+
+User.vue:
+<template>
+  <p>The user is {{ age }} years old</p>
+</template>
+<script>
+export default {
+  name: "User",
+  props: ["age"]
+}
+</script>
