@@ -10,17 +10,30 @@
     <h2 v-if="flag">Hello</h2>
   </transition> -->
 
-  <transition 
+  <!-- <transition 
     @before-enter="beforeEnter"
     @enter="enter"
     @after-enter="afterEnter"
     @before-leave="beforeLeave"
     @leave="leave"
     @after-leave="afterLeave"
-    :css="false"
+    :css="true"
+    name="fade"
   >
     <h2 v-if="flag">Hey</h2>
-  </transition>
+  </transition> -->
+
+  <button @click="addItem">Add</button>
+
+  <ul>
+    <!-- transition group is for animating items in a loop -->
+    <transition-group name="fade">
+      <li v-for="(number, index) in numbers" :key="number"
+          @click="removeItem(index)">
+        {{  number  }}
+      </li>
+    </transition-group>
+  </ul>
 </template>
 
 <script>
@@ -29,22 +42,31 @@ export default {
   data() {
     return {
       flag: false,
+      numbers: [1, 2, 3, 4, 5],
     };
   },
   methods: {
+    addItem() {
+      const num = Math.floor(Math.random() * 100 + 1);
+      const index = Math.floor(Math.random() * this.numbers.length);
+      this.numbers.splice(index, 0, num);
+    },
+    removeItem(index) {
+      this.numbers.splice(index, 1);
+    },
     beforeEnter(el) {
       console.log('before-enter event fired', el);
     },
-    enter(el, done) {
+    enter(el) {
       console.log('enter event fired', el);
 
-      const animation = el.animate([{ transform: "scale3d(0,0,0)" }, {}], {
-        duration: 1000,
-      });
+      // const animation = el.animate([{ transform: "scale3d(0,0,0)" }, {}], {
+      //   duration: 1000,
+      // });
 
-      animation.onfinish = () => {
-        done();
-      };
+      // animation.onfinish = () => {
+      //   done();
+      // };
     },
     afterEnter(el) {
       console.log('after-enter event fired', el);
@@ -52,18 +74,16 @@ export default {
     beforeLeave(el) {
       console.log('before-leave event fired', el);
     },
-    leave(el, done) {
+    leave(el) {
       console.log('leave event fired', el);
 
-      const animation = el.animate([{}, { transform: "scale3d(0,0,0)" }], {
-        duration: 1000,
-      });
+      // const animation = el.animate([{}, { transform: "scale3d(0,0,0)" }], {
+      //   duration: 1000,
+      // });
 
-      animation.onfinish = () => {
-        done();
-      };
-
-      done();
+      // animation.onfinish = () => {
+      //   done();
+      // };
     },
     afterLeave(el) {
       console.log('after-leave event fired', el);
@@ -72,6 +92,11 @@ export default {
 };
 </script>
 <style>
+li {
+  font-size: 22px;
+  cursor: pointer;
+}
+
 h2 {
   width: 400px;
   padding: 20px;
