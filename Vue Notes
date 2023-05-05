@@ -33,3 +33,28 @@ Good to know:
 
 - Components: Sections of your application (Header, footer, posts, lists, etc)
 
+- to set a component to be global, use the component in src/main.js: 
+import { createApp } from 'vue'
+import App from './App.vue'
+import Greeting from "@/components/Greeting.vue"
+
+let vm = createApp(App)
+
+vm.component("Greeting", Greeting)
+
+vm.mount('#app')
+
+- To Set a component locally: add it like so:
+<temmplate>
+  <Greeting />
+</template>
+
+<script>
+import Greeting from "@/components/Greeting.vue"
+export default {
+  name: 'App',
+  components: { 
+    Greeting 
+  },
+}
+</script>
