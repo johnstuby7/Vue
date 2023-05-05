@@ -8,7 +8,13 @@ export default {
   data() {
     return {
       msg: "hello world!"
-    }
-  }
-}
+    };
+  },
+};
 </script>
+
+<style scoped>
+p {
+  color: red
+}
+</style>
