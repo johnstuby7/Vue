@@ -136,7 +136,7 @@ export default {
   <User :age="age" @age-change="updateAge" />
 </template> -->
 
-<script>
+<!-- <script>
 import Greeting from "@/components/Greeting.vue"
 import User from "@/components/User.vue"
 
@@ -157,7 +157,7 @@ export default {
     }
   }
 }
-</script>
+</script> -->
 
 SLOTS EXAMPLES:
 
@@ -170,3 +170,9 @@ To setup format on save:
   "editor.codeActionsOnSave": {
   "source.fixAll.eslint": true
   }
+
+
+State:
+  - State refers to the data of your application. Retrieved from DB or API
+  - Application data: show dropdown, show modal, current fa-pagelines
+  - 
