@@ -175,4 +175,4 @@ To setup format on save:
 State:
   - State refers to the data of your application. Retrieved from DB or API
   - Application data: show dropdown, show modal, current fa-pagelines
-  - 
+
