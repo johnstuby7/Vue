@@ -1,9 +1,9 @@
-
 Good to know:
+
 - Using a cdn, you can just include the following to use vue without installing it: <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
 - In the network tab, you can use the no throttling dropdown to test out your code with various network throughput.
-- You can use v-cloak to hide the loading of a element, for example when it originally loaded the firstname, you would see {{}} before John Doe, to fix this you can add a    v-cloak to a div and set a custom css for it like so: div v-cloak.  Css: [v-cloak] { display:none} do this in main.css
+- You can use v-cloak to hide the loading of a element, for example when it originally loaded the firstname, you would see {{}} before John Doe, to fix this you can add a v-cloak to a div and set a custom css for it like so: div v-cloak. Css: [v-cloak] { display:none} do this in main.css
 
 - v-bind:href is the same as :href, this allows us to bind elements to certain logic/code
 
@@ -13,10 +13,9 @@ Good to know:
 
 - Computed properties: data-bind certain information together by using a computed property, good for reactive data, it helps to simplify logic: https://vuejs.org/guide/essentials/computed.html#basic-example
 
-- A computed property is a value that can be derived from other stored value. It calculates or computes from other values resulting in a new property. 
+- A computed property is a value that can be derived from other stored value. It calculates or computes from other values resulting in a new property.
 
 - Watchers:
-
 
 - v-show changes the display css property, if false,t hen display will be set to none, does not work with v-else, does not work with template/template
 
@@ -33,10 +32,10 @@ Good to know:
 
 - Components: Sections of your application (Header, footer, posts, lists, etc)
 
-- to set a component to be global, use the component in src/main.js: 
-import { createApp } from 'vue'
-import App from './App.vue'
-import Greeting from "@/components/Greeting.vue"
+- to set a component to be global, use the component in src/main.js:
+  import { createApp } from 'vue'
+  import App from './App.vue'
+  import Greeting from "@/components/Greeting.vue"
 
 let vm = createApp(App)
 
@@ -45,9 +44,9 @@ vm.component("Greeting", Greeting)
 vm.mount('#app')
 
 - To Set a component locally: add it like so:
-<temmplate>
+  <temmplate>
   <Greeting />
-</template>
+  </template>
 
 <script>
 import Greeting from "@/components/Greeting.vue"
@@ -59,15 +58,16 @@ export default {
 }
 </script>
 
-
 - npm install sass --save-dev will set the dependency to be a development only dependency
 
 Props:
+
 - Using props, a parent element is able to share information with its children
--  Basic example of passing a prop from a parent to child:
+- Basic example of passing a prop from a parent to child:
 
 App.vue:
 <template>
+
   <h3>Hey</h3>
   <!-- this is allowing the age to be passed as a prop to the child elements -->
   <Greeting :age="age" />
@@ -94,6 +94,7 @@ export default {
 
 User.vue:
 <template>
+
   <p>The user is {{ age }} years old</p>
 </template>
 <script>
@@ -105,7 +106,8 @@ export default {
 
 Props event emit example child to parent
 <template>
-  <button type="button" @click="onClickAge">Update Age</button>
+<button type="button" @click="onClickAge">Update Age</button>
+
   <p>The user is {{ age }} years old</p>
   <p>{{ ageDoubled }}</p>
 </template>
@@ -159,3 +161,12 @@ export default {
 
 SLOTS EXAMPLES:
 
+To setup format on save:
+
+- file/prefernces/settings/format on save
+- in settings: Look for default formatter and set it to prettier
+
+- ctrl shift p, look for user settings and add the following to the bottom fot he file:
+  "editor.codeActionsOnSave": {
+  "source.fixAll.eslint": true
+  }
