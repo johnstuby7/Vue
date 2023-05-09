@@ -195,3 +195,4 @@ Firebase setup:
 https://firebase.google.com/
 https://firebase.google.com/docs/rules
 https://firebase.google.com/docs/web/setup
+Got to your project, select authentication, select email/password, enable fa-italic
