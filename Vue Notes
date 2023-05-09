@@ -181,3 +181,4 @@ Validation Process:
 - Assign a name to the input
 - Add the rules
 - Handle the errors
+- npm install @vee-validate/rules
