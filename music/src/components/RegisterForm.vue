@@ -65,6 +65,12 @@
       <label class="inline-block">Accept terms of service</label>
       <ErrorMessage class="text-red-600 block" name="tos" />
     </div>
+    <!-- Artist -->
+    <div class="mb-3 pl-6">
+      <vee-field name="astist" value="1" type="checkbox" class="w-4 h-4 float-left -ml-6 mt-1 rounded" />
+      <label class="inline-block">Artist?</label>
+      <ErrorMessage class="text-red-600 block" name="artist" />
+    </div>
     <button type="submit" class="block w-full bg-purple-600 text-white py-1.5 px-3 rounded transition hover:bg-purple-700"
       :disabled="reg_in_submission">
       Submit
@@ -86,7 +92,8 @@ export default {
         password: 'required|min:9|max:100|excluded:password',
         confirm_password: 'passwords_mismatch:@password',
         country: 'required|country_excluded:Antarctica',
-        tos: 'tos'
+        tos: 'tos',
+        artist: ''
       },
       userData: {
         country: 'USA'
