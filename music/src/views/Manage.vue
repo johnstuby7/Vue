@@ -130,3 +130,12 @@
     </div>
   </section>
 </template>
+<script>
+export default {
+  name: 'manage',
+  beforeRouteEnter(to, from, next) {
+    console.log('Before enter route gaurd')
+    next()
+  }
+}
+</script>
