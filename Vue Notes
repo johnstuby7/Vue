@@ -176,9 +176,17 @@ State:
   - State refers to the data of your application. Retrieved from DB or API
   - Application data: show dropdown, show modal, current fa-pagelines
 
+Validation:
+
 Validation Process:
 - use the <Field /> component
 - Assign a name to the input
 - Add the rules
 - Handle the errors
 - npm install @vee-validate/rules
+
+When are inputs validated:
+- after the change event
+- after the change event is applied to a input, when the model is changed
+- after the blur event
+- after form submission
