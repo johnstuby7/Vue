@@ -125,14 +125,14 @@
 <script>
 import { mapState, mapWritableState } from "pinia";
 import useModalStore from "@/stores/modal";
-
+// alpha will only allow alphabetical values
 export default {
   name: "Auth",
   data() {
     return {
       tab: "login",
       schema: {
-        name: "required",
+        name: "required|min:3|max:100|alpha_spaces",
         emaiL: "required",
         age: "",
         password: "",
