@@ -199,3 +199,7 @@ Got to your project, select authentication, select email/password, enable fa-ita
 Now go to the firebase.js file and add in the following:
 import 'firebase/auth'
 import 'firebase/firestore';
+
+What is stateless authentication:
+- The server does not actively keep track of whos logged in.
+- A token is used to verify the user instead
