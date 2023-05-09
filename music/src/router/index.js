@@ -16,14 +16,14 @@ const routes = [
   },
   {
     name: 'manage',
-    alias: '/manage',
+    // alias: '/manage',
     path: '/manage-music',
     component: Manage
   },
-  // {
-  //   path: '/manage',
-  //   redirect: { name: 'manage' }
-  // },
+  {
+    path: '/manage',
+    redirect: { name: 'manage' }
+  },
   {
     path: '/:catchAll(.*)*',
     redirect: { name: 'home' }
@@ -34,6 +34,13 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes,
   linkExactActiveClass: 'text-yellow-500'
+})
+
+router.beforeEach((to, from, next) => {
+  console.log('GLobal Gaurd')
+  console.log(to, from)
+
+  next()
 })
 
 export default router
