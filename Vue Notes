@@ -190,3 +190,8 @@ When are inputs validated:
 - after the change event is applied to a input, when the model is changed
 - after the blur event
 - after form submission
+
+Firebase setup:
+https://firebase.google.com/
+https://firebase.google.com/docs/rules
+https://firebase.google.com/docs/web/setup
