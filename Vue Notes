@@ -196,3 +196,6 @@ https://firebase.google.com/
 https://firebase.google.com/docs/rules
 https://firebase.google.com/docs/web/setup
 Got to your project, select authentication, select email/password, enable fa-italic
+Now go to the firebase.js file and add in the following:
+import 'firebase/auth'
+import 'firebase/firestore';
