@@ -87,16 +87,18 @@
             <!-- Password -->
             <div class="mb-3">
               <label class="inline-block mb-2">Password</label>
-              <input type="password"
+              <vee-field type="password" name="password"
                 class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
                 placeholder="Password" />
+              <ErrorMessage class="text-red-600" name="password" />
             </div>
             <!-- Confirm Password -->
             <div class="mb-3">
               <label class="inline-block mb-2">Confirm Password</label>
-              <input type="password"
+              <vee-field type="password" name="confirm_password"
                 class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
                 placeholder="Confirm Password" />
+              <ErrorMessage class="text-red-600" name="confirm_password" />
             </div>
             <!-- Country -->
             <div class="mb-3">
@@ -110,7 +112,7 @@
             </div>
             <!-- TOS -->
             <div class="mb-3 pl-6">
-              <input type="checkbox" class="w-4 h-4 float-left -ml-6 mt-1 rounded" />
+              <vee-field type="checkbox" name="tos" class="w-4 h-4 float-left -ml-6 mt-1 rounded" />
               <label class="inline-block">Accept terms of service</label>
             </div>
             <button type="submit"
@@ -137,10 +139,10 @@ export default {
         name: "required|min:3|max:100|alpha_spaces",
         email: "required|min:3|max:100|email",
         age: "required|min_value:18|max_value:100",
-        password: "",
-        confirm_password: "",
-        country: "",
-        tos: "",
+        password: "required|min:3|max:100",
+        confirm_password: "confirmed:@password",
+        country: "required",
+        tos: "required",
       }
     };
   },
