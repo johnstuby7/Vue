@@ -16,12 +16,12 @@
       </div>
       <hr class="my-6" />
       <!-- Progess Bars -->
-      <div class="mb-4" v-for="upload in uploads" :key="upload.name">
+      <div class="mb-4" v-for="upload in uploads" :key="upload.name" :class="upload.text_class">
         <!-- File Name -->
-        <div class="font-bold text-sm">{{ upload.name }}</div>
+        <div class="font-bold text-sm"><i :class="upload.icon"></i>{{ upload.name }}</div>
         <div class="flex h-4 overflow-hidden bg-gray-200 rounded">
           <!-- Inner Progress Bar -->
-          <div class="transition-all progress-bar bg-blue-400" :class="bg - blue - 400"
+          <div class="transition-all progress-bar" :class="upload.variant"
             :style="{ width: upload.current_progress + '%' }"></div>
         </div>
       </div>
@@ -55,15 +55,20 @@ export default {
         const songsRef = storageRef.child(`songs/${file.name}`)
         const task = songsRef.put(file)
 
-        this.uploads.push({
-          task,
-          current_progress: 0,
-          name: file.name
-        })
+        const uploadIndex =
+          this.uploads.push({
+            task,
+            current_progress: 0,
+            name: file.name,
+            varian: 'bg-blue-400',
+            icon: 'fas fa-spinner fa-spin',
+            text_class: ''
+          }) - 1
 
         // This is will give us the percent of progress complete
         task.on('state_changed', (snapshot) => {
           const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+          this.uploads[uploadIndex].current_progress = progress
         })
       })
       console.log(files)
