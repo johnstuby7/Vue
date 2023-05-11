@@ -14,7 +14,7 @@
           <div class="p-6">
             <!-- Composition Items -->
             <CompositionItem v-for="(song, i) in songs" :key="song.docId" :song="song" :updateSong="updateSong" :index="i"
-              :removeSong="removeSong" />
+              :removeSong="removeSong" :updateUnsavedFlag="updateUnsavedFlag" />
           </div>
         </div>
       </div>
@@ -35,7 +35,8 @@ export default {
   },
   data() {
     return {
-      songs: []
+      songs: [],
+      unsavedFlag: false
     }
   },
   // Used to  store a list of songs
@@ -60,6 +61,18 @@ export default {
         docID: document.id
       }
       this.songs.push(song)
+    },
+    updateUnsavedFlag(value) {
+      this.unsavedFlag = value
+    }
+  },
+  // prevents router from leaving page based on if user is filling a form, or modifying data
+  beforeRouteLeave(to, from, next) {
+    if (!this.unsavedFlag) {
+      next()
+    } else {
+      const leave = confirm('You have unsaved changes. Are you sure you want to leave?')
+      next(leave)
     }
   }
 
