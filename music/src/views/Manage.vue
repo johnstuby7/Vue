@@ -13,8 +13,8 @@
           </div>
           <div class="p-6">
             <!-- Composition Items -->
-            <CompositionItem v-for="(song, i) in songs" :key="song.docId" :song="song" :updateSong="updateSong"
-              :index="i" />
+            <CompositionItem v-for="(song, i) in songs" :key="song.docId" :song="song" :updateSong="updateSong" :index="i"
+              :removeSong="removeSong" />
           </div>
         </div>
       </div>
@@ -55,6 +55,10 @@ export default {
     // i is index
     updateSong(i, values) {
       this.songs[i].modified_name = values.modified_namethis.songs[i].genre = values.genre
+    },
+    // splice will remove the item from the array
+    removeSong(i) {
+      this.songs.splice(i, 1)
     }
   }
 
