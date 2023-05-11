@@ -57,7 +57,7 @@ export default {
           return;
         }
 
-        const storageRef = storage().ref(); // music-c2596.appspot.com
+        const storageRef = storage.ref(); // music-c2596.appspot.com
         const songsRef = storageRef.child(`songs/${file.name}`); // music-c2596.appspot.com/songs/example.mp3
         const task = songsRef.put(file);
 
