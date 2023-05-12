@@ -5,7 +5,8 @@
       style="background-image: url(/assets/img/song-header.png)"></div>
     <div class="container mx-auto flex items-center">
       <!-- Play/Pause Button -->
-      <button type="button" class="z-50 h-24 w-24 text-3xl bg-white text-black rounded-full focus:outline-none">
+      <button @click.prevent="newSong(song)" type="button"
+        class="z-50 h-24 w-24 text-3xl bg-white text-black rounded-full focus:outline-none">
         <i class="fas fa-play"></i>
       </button>
       <div class="z-50 text-left ml-8">
@@ -65,8 +66,9 @@
 </template>
 <script>
 import { songsCollection, auth, commentsCollection } from '../includes/firebase'
-import { mapState } from 'pinia'
+import { mapState, mapActions } from 'pinia'
 import useUserStore from '@/stores/user'
+import usePlayerStore from '@/stores/player'
 
 export default {
   name: 'Song',
@@ -113,6 +115,7 @@ export default {
     this.getComments()
   },
   methods: {
+    ...usePlayerStore(usePlayerStore, ['newSong']),
     // context can be used to reset the form, second option has built in methods we can use
     async addComment(values, { resetForm }) {
       this.comment_in_submission = true
