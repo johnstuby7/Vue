@@ -115,7 +115,7 @@ export default {
     this.getComments()
   },
   methods: {
-    ...usePlayerStore(usePlayerStore, ['newSong']),
+    ...mapActions(usePlayerStore, ['newSong']),
     // context can be used to reset the form, second option has built in methods we can use
     async addComment(values, { resetForm }) {
       this.comment_in_submission = true

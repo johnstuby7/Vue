@@ -225,4 +225,28 @@ Playing videos in the browser:
 - Download Howler.js https://howlerjs.com/
 - npm install howler
 - create a new store to help with managing playing videos
+- player store example:
+import { defineStore } from 'pinia'
+import { Howl } from 'howler'
+
+export default defineStore('player', {
+  state: () => ({
+    currentSong: {},
+    sound: {}
+  }),
+  actions: {
+    async newSong(song) {
+      this.current_song = song
+
+      // creates a new howl instance that tracks the song playing state
+      this.sound = new Howl({
+        src: [song.url],
+        html5: true
+      })
+
+      this.sound.play()
+    }
+  }
+})
+
 
