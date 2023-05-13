@@ -9,6 +9,7 @@ const firebaseConfig = {
   authDomain: 'music-3ea4c.firebaseapp.com',
   projectId: 'music-3ea4c',
   storageBucket: 'music-3ea4c.appspot.com',
+  messagingSenderId: '990451646499',
   appId: '1:990451646499:web:ef48394875108fc90e7196'
 }
 
@@ -20,6 +21,5 @@ const storage = firebase.storage
 
 const usersCollection = db.collection('users')
 const songsCollection = db.collection('songs')
-const commentsCollection = db.collection('comments')
 
-export { auth, db, usersCollection, storage, songsCollection, commentsCollection }
+export { auth, db, usersCollection, storage, songsCollection }

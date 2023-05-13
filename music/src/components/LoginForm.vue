@@ -45,7 +45,6 @@ export default {
     }
   },
   methods: {
-    // spread function is ...
     ...mapActions(useUserStore, ['authenticate']),
     async login(values) {
       this.login_show_alert = true
@@ -58,14 +57,12 @@ export default {
       } catch (error) {
         this.login_in_submission = false
         this.login_alert_variant = 'bg-red-500'
-        this.login_alert_msg = 'Invalid login details'
+        this.login_alert_msg = 'Invalid login details.'
         return
       }
 
       this.login_alert_variant = 'bg-green-500'
       this.login_alert_msg = 'Success! You are now logged in.'
-
-      // will reload the page
       window.location.reload()
     }
   }

@@ -31,22 +31,16 @@
 </template>
 
 <script>
-import { mapActions, mapState } from "pinia";
-import usePlayerStore from "@/stores/player";
+import { mapActions, mapState } from 'pinia'
+import usePlayerStore from '@/stores/player'
 
 export default {
-  name: "Player",
+  name: 'Player',
   methods: {
-    ...mapActions(usePlayerStore, ["toggleAudio", "updateSeek"]),
+    ...mapActions(usePlayerStore, ['toggleAudio', 'updateSeek'])
   },
   computed: {
-    ...mapState(usePlayerStore, [
-      "playing",
-      "duration",
-      "seek",
-      "playerProgress",
-      "current_song",
-    ]),
-  },
-};
+    ...mapState(usePlayerStore, ['playing', 'duration', 'seek', 'playerProgress', 'current_song'])
+  }
+}
 </script>

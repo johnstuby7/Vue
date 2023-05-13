@@ -13,22 +13,23 @@
           </div>
           <div class="p-6">
             <!-- Composition Items -->
-            <CompositionItem v-for="(song, i) in songs" :key="song.docId" :song="song" :updateSong="updateSong" :index="i"
-              :removeSong="removeSong" :updateUnsavedFlag="updateUnsavedFlag" />
+            <composition-item v-for="(song, i) in songs" :key="song.docID" :song="song" :updateSong="updateSong"
+              :index="i" :removeSong="removeSong" :updateUnsavedFlag="updateUnsavedFlag" />
           </div>
         </div>
       </div>
     </div>
   </section>
 </template>
+
 <script>
-// import useUserStore from '@/stores/user'
-import AppUpload from '../components/Upload.vue'
+// import useUserStore from "@/stores/user";
+import AppUpload from '@/components/Upload.vue'
 import { songsCollection, auth } from '@/includes/firebase'
-import CompositionItem from '../components/CompositionItem.vue'
+import CompositionItem from '@/components/CompositionItem.vue'
 
 export default {
-  name: 'manage',
+  name: 'Manage',
   components: {
     AppUpload,
     CompositionItem
@@ -39,19 +40,16 @@ export default {
       unsavedFlag: false
     }
   },
-  // Used to  store a list of songs
   async created() {
-    // This will generate a query to search through the songs collection in the db and return any matches
     const snapshot = await songsCollection.where('uid', '==', auth.currentUser.uid).get()
 
     snapshot.forEach(this.addSong)
   },
   methods: {
-    // i is index
     updateSong(i, values) {
-      this.songs[i].modified_name = values.modified_namethis.songs[i].genre = values.genre
+      this.songs[i].modified_name = values.modified_name
+      this.songs[i].genre = values.genre
     },
-    // splice will remove the item from the array
     removeSong(i) {
       this.songs.splice(i, 1)
     },
@@ -60,34 +58,34 @@ export default {
         ...document.data(),
         docID: document.id
       }
+
       this.songs.push(song)
     },
     updateUnsavedFlag(value) {
       this.unsavedFlag = value
     }
   },
-  // prevents router from leaving page based on if user is filling a form, or modifying data
   beforeRouteLeave(to, from, next) {
     if (!this.unsavedFlag) {
       next()
     } else {
+      // eslint-disable-next-line no-alert, no-restricted-globals
       const leave = confirm('You have unsaved changes. Are you sure you want to leave?')
       next(leave)
     }
   }
-
   // beforeRouteLeave(to, from, next) {
-  //   this.$refs.upload.cancelUploads()
-  //   next()
-  // }
+  //   this.$refs.upload.cancelUploads();
+  //   next();
+  // },
   // beforeRouteEnter(to, from, next) {
-  //   const store = useUserStore()
+  //   const store = useUserStore();
 
   //   if (store.userLoggedIn) {
-  //     next()
+  //     next();
   //   } else {
-  //     next({ name: 'home' })
+  //     next({ name: "home" });
   //   }
-  // }
+  // },
 }
 </script>
