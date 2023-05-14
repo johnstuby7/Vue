@@ -249,4 +249,6 @@ export default defineStore('player', {
   }
 })
 
+$tc allows translations with pluralization
+
 
