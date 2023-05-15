@@ -1,8 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '@/views/Home.vue'
-import About from '@/views/About.vue'
-import Manage from '@/views/Manage.vue'
+
 import useUserStore from '@/stores/user'
+
+// chunk example
+const Home = () => import('@/views/Home.vue')
+const About = () => import('@/views/About.vue')
+const Manage = () => import('@/views/Home.vue')
+const Song = () => import('@/views/Song.vue')
 
 const routes = [
   {
