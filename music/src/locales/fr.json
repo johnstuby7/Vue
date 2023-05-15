@@ -4,5 +4,12 @@
   },
   "song": {
     "comment_count": ""
+  },
+  "register": {
+    "accept": "I accept Music's {0}",
+    "tos": "Terms of Service"
+  },
+  "manage": {
+    "my_songs": "Mes chansons"
   }
 }
