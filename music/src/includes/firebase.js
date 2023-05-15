@@ -19,6 +19,11 @@ const auth = firebase.auth()
 const db = firebase.firestore()
 const storage = firebase.storage
 
+// Keep copy of db on browser for user, helps keep the user experience running if a issue occurs
+db.enablePersistence().catach((error) => {
+  console.log(`Firebase Persistence error ${error.code}`)
+})
+
 const usersCollection = db.collection('users')
 const songsCollection = db.collection('songs')
 
