@@ -1,5 +1,5 @@
 import SongItem from '@/components/SongItem.vue'
-import { shallowMount } from '@vue/test-utils'
+import { shallowMount, RouterLinkStub } from '@vue/test-utils'
 import { expect, test, describe } from 'vitest'
 
 describe('SongItem.vue', () => {
@@ -11,9 +11,16 @@ describe('SongItem.vue', () => {
     const wrapper = shallowMount(SongItem, {
       props: {
         song
+      },
+      global: {
+        components: {
+          'router-link': RouterLinkStub
+        }
       }
     })
 
-    expect(wrapper.text()).toContain(song.display_name)
+    const compositionAuthor = wrapper.find('.text-gray-500')
+
+    expect(compositionAuthor.text()).toBe(song.display_name)
   })
 })
