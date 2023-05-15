@@ -20,7 +20,7 @@ const db = firebase.firestore()
 const storage = firebase.storage
 
 // Keep copy of db on browser for user, helps keep the user experience running if a issue occurs
-db.enablePersistence().catach((error) => {
+db.enablePersistence().catch((error) => {
   console.log(`Firebase Persistence error ${error.code}`)
 })
 
